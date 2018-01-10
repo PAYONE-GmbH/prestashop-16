@@ -21,9 +21,9 @@
  * @link      http://www.payone.de
  */
 
-namespace Payone\Payment\Methods\Wallet;
+namespace Payone\Payment\Methods;
 
-class Wallet extends \Payone\Payment\Methods\Base
+class InvoiceSecure extends Base
 {
 
     /**
@@ -31,15 +31,21 @@ class Wallet extends \Payone\Payment\Methods\Base
      *
      * @var string
      */
-    protected $sId = 'wallet';
-
+    protected $sId = 'invoicesecure';
 
     /**
      * Clearing type
      *
      * @var string
      */
-    protected $sClearingType = 'wlt';
+    protected $sClearingType = 'rec';
+
+    /**
+     * Sub Clearing type
+     *
+     * @var string
+     */
+    protected $sSubClearingType = 'POV';
 
 
     /**
@@ -47,29 +53,42 @@ class Wallet extends \Payone\Payment\Methods\Base
      *
      * @var array
      */
-    protected $aRequestTypes = array(
-        \Payone\Payment\Methods\Base::REQUEST_PREAUTH,
-        \Payone\Payment\Methods\Base::REQUEST_AUTH
-    );
+    protected $aRequestTypes = array(Base::REQUEST_PREAUTH, Base::REQUEST_AUTH);
 
     /**
-     * Marker for sub payments
+     * True if bank data is required for debit request
      *
-     * @var boolean
+     * @var bool
      */
-    protected $blHasSubPayments = true;
+    protected $blNeedBankDataForDebit = false;
 
     /**
      * Payment template
      *
      * @var string
      */
-    protected $sTemplate = 'wallet.tpl';
+    protected $sTemplate = 'invoicesecure.tpl';
+
 
     /**
-     * Marks wallet payments as grouped payments
+     * Disable amount input for capture/refund
+     * eg. secure invoice
      *
      * @var bool
      */
-    protected $blIsGroupedPayment = true;
+    protected $blDisableAmountInput = true;
+
+    /**
+     * Add items to capture request
+     *
+     * @var bool
+     */
+    protected $blIsItemsRequiredInCaptureRequest = true;
+
+    /**
+     * Add items to debit/refund request
+     *
+     * @var bool
+     */
+    protected $blIsItemsRequiredInDebitRequest = true;
 }

@@ -21,55 +21,8 @@
  * @link      http://www.payone.de
  */
 
-namespace Payone\Payment\Methods\Wallet;
+namespace Payone\Forms\Backend\Payment;
 
-class Wallet extends \Payone\Payment\Methods\Base
+class InvoiceSecure extends Base
 {
-
-    /**
-     * ID
-     *
-     * @var string
-     */
-    protected $sId = 'wallet';
-
-
-    /**
-     * Clearing type
-     *
-     * @var string
-     */
-    protected $sClearingType = 'wlt';
-
-
-    /**
-     * Available request type
-     *
-     * @var array
-     */
-    protected $aRequestTypes = array(
-        \Payone\Payment\Methods\Base::REQUEST_PREAUTH,
-        \Payone\Payment\Methods\Base::REQUEST_AUTH
-    );
-
-    /**
-     * Marker for sub payments
-     *
-     * @var boolean
-     */
-    protected $blHasSubPayments = true;
-
-    /**
-     * Payment template
-     *
-     * @var string
-     */
-    protected $sTemplate = 'wallet.tpl';
-
-    /**
-     * Marks wallet payments as grouped payments
-     *
-     * @var bool
-     */
-    protected $blIsGroupedPayment = true;
 }
