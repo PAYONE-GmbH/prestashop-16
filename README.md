@@ -13,12 +13,12 @@ PrestaShop is based on the idea of open source innovations. The PAYONE payment-m
 More information about PrestaShop on https://www.payone.com/plattform-integration/extensions/presta-shop/
 
 ## Contact
-PAYONE GmbH<br>
+BS PAYONE GmbH<br>
 Office Kiel<br>
 Fraunhoferstraße 2–4<br>
 24118 Kiel, Germany <br>
 Phone +49 431 25968-400 <br> 
-info@payone.com<br>
+info@bspayone.com<br>
 https://www.payone.com/plattform-integration/extensions/presta-shop/
 
 ## License
