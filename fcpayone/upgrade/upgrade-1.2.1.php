@@ -15,26 +15,19 @@
  *
  * PHP version 5
  *
- * @author    FATCHIP GmbH <support@fatchip.de>
- * @copyright 2003 - 2017 Payone GmbH
+ * @author    patworx multimedia GmbH <service@patworx.de>
+ * @copyright 2003 - 2018 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
 
-namespace Payone\Request\Builder\Payment;
 
-class InvoiceSecure extends Base
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+function upgrade_module_1_2_1($module)
 {
-
-    /**
-     * Builds payment request
-     */
-    public function build()
-    {
-        parent::build();
-        $this->setParam('narrative_text', $this->getPayment()->getTitle());
-        $this->setParam('clearingsubtype', $this->getPayment()->getSubClearingType());
-        $this->setUserToRequest();
-        $this->setItemsToRequest();
-    }
+    $module->registerHook('displayPDFInvoice');
+    return true;
 }

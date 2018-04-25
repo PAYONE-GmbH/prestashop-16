@@ -23,7 +23,7 @@
 
 namespace Payone\Request\Builder\Payment;
 
-class OnlineTransfer extends Base
+class BSInvoice extends Base
 {
 
     /**
@@ -35,26 +35,13 @@ class OnlineTransfer extends Base
         $this->setParam('narrative_text', $this->getPayment()->getTitle());
         $this->setUserToRequest();
         $this->setPaymentDataToRequest();
-        $this->addRedirectParameters();
     }
 
     /**
-     * Sets debit payment data to request
+     * Set BS-Invoice request params
      */
-    public function setPaymentDataToRequest()
+    protected function setPaymentDataToRequest()
     {
-        $oPayment = $this->getPayment();
-        $aPaymentInfo = $this->getForm();
-        if ($oPayment->hasIbanBic()) {
-            $this->setParam('iban', $aPaymentInfo['iban']);
-            $this->setParam('bic', $aPaymentInfo['bic']);
-        }
-
-        if (count($oPayment->getBankGroups()) > 0) {
-            $this->setParam('bankgrouptype', $aPaymentInfo['bankgrouptype_' . $oPayment->getId()]);
-        }
-
-        $this->setParam('bankcountry', $this->getParam('country'));
-        $this->setParam('onlinebanktransfertype', $oPayment->getSubClearingType());
+        $this->setParam('clearingsubtype', $this->getPayment()->getSubClearingType());
     }
 }

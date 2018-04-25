@@ -15,15 +15,15 @@
  *
  * PHP version 5
  *
- * @author    FATCHIP GmbH <support@fatchip.de>
- * @copyright 2003 - 2017 Payone GmbH
+ * @author    patworx multimedia GmbH <service@patworx.de>
+ * @copyright 2003 - 2018 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
 
 namespace Payone\Payment\Methods;
 
-class InvoiceSecure extends Base
+class BSInvoice extends Base
 {
 
     /**
@@ -31,7 +31,7 @@ class InvoiceSecure extends Base
      *
      * @var string
      */
-    protected $sId = 'invoicesecure';
+    protected $sId = 'bsinvoice';
 
     /**
      * Clearing type
@@ -39,14 +39,6 @@ class InvoiceSecure extends Base
      * @var string
      */
     protected $sClearingType = 'rec';
-
-    /**
-     * Sub Clearing type
-     *
-     * @var string
-     */
-    protected $sSubClearingType = 'POV';
-
 
     /**
      * Available request type
@@ -63,12 +55,11 @@ class InvoiceSecure extends Base
     protected $blNeedBankDataForDebit = false;
 
     /**
-     * Payment template
+     * Clearing type
      *
      * @var string
      */
-    protected $sTemplate = 'invoicesecure.tpl';
-
+    protected $sSubClearingType = 'POV';
 
     /**
      * Disable amount input for capture/refund
@@ -78,17 +69,4 @@ class InvoiceSecure extends Base
      */
     protected $blDisableAmountInput = true;
 
-    /**
-     * Add items to capture request
-     *
-     * @var bool
-     */
-    protected $blIsItemsRequiredInCaptureRequest = true;
-
-    /**
-     * Add items to debit/refund request
-     *
-     * @var bool
-     */
-    protected $blIsItemsRequiredInDebitRequest = true;
 }
