@@ -69,4 +69,18 @@ class BSInvoice extends Base
      */
     protected $blDisableAmountInput = true;
 
+    /**
+     * Add items to capture request
+     *
+     * @var bool
+     */
+    protected $blIsItemsRequiredInCaptureRequest = true;
+
+    /**
+     * Add items to debit/refund request
+     *
+     * @var bool
+     */
+    protected $blIsItemsRequiredInDebitRequest = true;
+
 }
