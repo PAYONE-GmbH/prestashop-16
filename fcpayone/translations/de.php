@@ -95,6 +95,7 @@ $_MODULE['<{fcpayone}prestashop>translations_93429ce1216ef7b200900e39d9023135'] 
 $_MODULE['<{fcpayone}prestashop>translations_55f94d323069095acaa3e88a49a579d6'] = 'IBAN';
 $_MODULE['<{fcpayone}prestashop>translations_a7f4350499fa371114c6e367495ef44f'] = 'BIC';
 $_MODULE['<{fcpayone}prestashop>translations_7c573167216a3413292f9a644f18bb6e'] = 'Ablaufdatum';
+$_MODULE['<{fcpayone}prestashop>translations_71a542cf4cc6749183b2d01193d910e0'] = 'Kartentyp';
 $_MODULE['<{fcpayone}prestashop>translations_63cc59a4061c62a30c46c8fc2b35a4a5'] = 'Kartennummer';
 $_MODULE['<{fcpayone}prestashop>translations_ed67c6171475c20085c3bb0925e3572d'] = 'Letzter Anfrage Status';
 $_MODULE['<{fcpayone}prestashop>translations_fc7a15f416c18106f6814da3e9a4f943'] = 'Anfrage Fehler';
@@ -170,6 +171,7 @@ $_MODULE['<{fcpayone}prestashop>translations_fb75a2b342eee12874c025789f08e219'] 
 $_MODULE['<{fcpayone}prestashop>translations_9a04bbc4c800c04b9bc72cc07a31be98'] = 'Nachname';
 $_MODULE['<{fcpayone}prestashop>translations_7b9d30ad0ac30206e7614fe919e6c774'] = 'Bankeinzug/Lastschrift';
 $_MODULE['<{fcpayone}prestashop>translations_bb41c063548339f9f5716381096d52c7'] = 'Rechnung';
+$_MODULE['<{fcpayone}prestashop>translations_b0d927d037e3073413d55ec1cf4c0c0f'] = 'BS Payone - gesicherter Rechnungskauf';
 $_MODULE['<{fcpayone}prestashop>translations_577d322d680ed8f0275b4ef6fdcd0669'] = 'PayPal';
 $_MODULE['<{fcpayone}prestashop>translations_0658c0e5942a759a887e27b14e70df65'] = 'PayPal Express';
 $_MODULE['<{fcpayone}prestashop>translations_6a43ad5f203d869a31f7373f180cbcb5'] = 'Paydirekt';
@@ -211,7 +213,7 @@ $_MODULE['<{fcpayone}prestashop>translations_a9165ad8e0c02f59640aa27175376432'] 
 $_MODULE['<{fcpayone}prestashop>translations_ce40e1339a579b17f6a7662b2305aab5'] = 'Wollen Sie wirklich ein \"refund\" ausführen?';
 $_MODULE['<{fcpayone}prestashop>translations_7f18f1efc290f6e8c122ae2b9f6d8292'] = 'Capture';
 $_MODULE['<{fcpayone}prestashop>translations_ec2053d9012818b66885326cefebd795'] = 'Debit';
-
-
-
-
+$_MODULE['<{fcpayone}prestashop>translations_b9a364ede2013266649e5c5228be84b7'] = 'Bank:';
+$_MODULE['<{fcpayone}prestashop>translations_bca12314f8b85431b3153acc00138690'] = 'Verwendungszweck:';
+$_MODULE['<{fcpayone}prestashop>translations_6d9f1ea3fc35be58ea20150f11005ea5'] = 'Überweisungsdaten:';
+$_MODULE['<{fcpayone}prestashop>translations_6f285a61b5d66e3aa95a7da9891a87d0'] = 'Bitte überweisen Sie den Gesamtbetrag auf folgende Bankverbindung:';

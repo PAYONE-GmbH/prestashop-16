@@ -15,8 +15,8 @@
  *
  * PHP version 5
  *
- * @author    FATCHIP GmbH <support@fatchip.de>
- * @copyright 2003 - 2017 Payone GmbH
+ * @author    patworx multimedia GmbH <service@patworx.de>
+ * @copyright 2003 - 2018 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
@@ -49,6 +49,7 @@ class Order extends Base
         $this->addTransactionList($oOrder->id);
         $this->addActionForms($oOrder, $aOrderData, $oPayment);
         $this->addLastRequest($aOrderData['txid']);
+        $this->addLastRequestWithClearingData($aOrderData['txid']);
         if ($aOrderData['paymentid'] == 'debit') {
             $oUser = new \Payone\Base\User();
             $iCustomerId = $oUser->getCustomerIdByPayoneUserId($aOrderData['userid']);
@@ -62,6 +63,24 @@ class Order extends Base
             Registry::getHelper()->getModulePath(),
             'views/templates/hook/admin/adminorder.tpl'
         );
+    }
+
+    /**
+     * Add last request with clearing- / bankdata to template
+     *
+     * @param $iTxId
+     */
+    public function addLastRequestWithClearingData($iTxId)
+    {
+        $sTable = _DB_PREFIX_ . Request::getTable();
+        $iTxId = (int)\pSQL($iTxId);
+        $sQ = "select * from $sTable where txid = '{$iTxId}' and `response` like '%clearing_%' order by date desc";
+        $aLastRequest = \Db::getInstance()->getRow($sQ);
+        if ($aLastRequest) {
+            $this->getSmarty()->assign('aFcPayoneLastRequestWithClearingData', \Tools::jsonDecode($aLastRequest['response'], true));
+            return true;
+        }
+        return;
     }
 
 

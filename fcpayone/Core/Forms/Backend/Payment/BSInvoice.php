@@ -15,14 +15,14 @@
  *
  * PHP version 5
  *
- * @author    FATCHIP GmbH <support@fatchip.de>
- * @copyright 2003 - 2017 Payone GmbH
+ * @author    patworx multimedia GmbH <service@patworx.de>
+ * @copyright 2003 - 2018 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
 
 namespace Payone\Forms\Backend\Payment;
 
-class InvoiceSecure extends Base
+class BSInvoice extends Base
 {
 }

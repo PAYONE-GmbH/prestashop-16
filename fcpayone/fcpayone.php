@@ -15,8 +15,8 @@
  *
  * PHP version 5
  *
- * @author    FATCHIP GmbH <support@fatchip.de>
- * @copyright 2003 - 2017 Payone GmbH
+ * @author    patworx multimedia GmbH <service@patworx.de>
+ * @copyright 2003 - 2018 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
@@ -36,16 +36,17 @@ class FcPayone extends \PaymentModule
     {
         $this->name = 'fcpayone';
         $this->tab = 'payments_gateways';
-        $this->version = '1.2.0';
+        $this->version = '1.2.1';
         if (!defined('_FCPAYONE_VERSION_')) {
             define('_FCPAYONE_VERSION_', $this->version);
         }
-        $this->author = 'FATCHIP GmbH';
+        $this->author = 'patworx multimedia GmbH';
         $this->need_instance = 0;
         $this->bootstrap = true;
         $this->is_eu_compatible = 1;
         $this->currencies = true;
         $this->currencies_mode = 'checkbox';
+        $this->module_key = 'd19ef9306567fb99c3b4e9aace0ef2b3';
         parent::__construct();
         $this->secure_key = \Tools::encrypt($this->name);
         $oTranslator = \Payone\Base\Registry::getTranslator();
@@ -92,6 +93,7 @@ class FcPayone extends \PaymentModule
             $this->registerHook('paymentReturn') &&
             $this->registerHook('displayAdminOrderLeft') &&
             $this->registerHook('displayShoppingCart') &&
+            $this->registerHook('displayPDFInvoice') &&
             $this->fcPayoneCreateTables() &&
             $this->fcPayoneAddDefaultConfiguration();
     }
@@ -682,5 +684,32 @@ class FcPayone extends \PaymentModule
             'sFcPayoneModuleId' => $this->name,
             'oFcPayoneTranslator' => \Payone\Base\Registry::getTranslator(),
         ));
+    }
+
+    /**
+     * Displays clearing-Data at PDF invoices if needed
+     *
+     * @param object $params
+     */
+    public function hookDisplayPDFInvoice($params)
+    {
+        $oOrder = new Order((int)$params['object']->id_order);
+        if ($oOrder->module !== $this->name) {
+            return;
+        }
+        $this->fcPayoneAddDefaultTemplateVars();
+        $oOrderForm = new \Payone\Forms\Backend\Order;
+        $oOrderForm->setModule($this);
+        $oOrderForm->setOrder($oOrder);
+        $oOrderForm->setContext($this->context);
+        $oPayoneOrder = new \Payone\Base\Order();
+        $aOrderData = $oPayoneOrder->getOrderData($oOrder->id);
+        $hasClearingData = $oOrderForm->addLastRequestWithClearingData($aOrderData['txid']);
+        if ($hasClearingData) {
+            $this->context->smarty->assign('usage', $aOrderData['txid']);
+            return $this->display(
+                $this->fcGetPayoneHelper()->getModulePath(),
+                'views/templates/hook/admin/displayPDFInvoice.tpl');
+        }
     }
 }
