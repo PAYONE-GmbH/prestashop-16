@@ -50,9 +50,7 @@ class Base extends \Payone\Request\Builder\Base
         parent::build();
         $this->setAuthToRequest();
         $this->setBasePaymentToRequest();
-        if ($this->sendBasketContent() &&
-            $this->getPayment()->getRequestType() != \Payone\Payment\Methods\Base::REQUEST_PREAUTH
-        ) {
+        if ($this->sendBasketContent()) {
             $this->setItemsToRequest();
         }
     }
