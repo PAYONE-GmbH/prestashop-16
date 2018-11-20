@@ -168,7 +168,7 @@ $_MODULE['<{fcpayone}prestashop>translations_366eb5b88c4118bdb49799afec7d28c3'] 
 $_MODULE['<{fcpayone}prestashop>translations_1ed23498ebba3fab919b6ec6195e74c6'] = 'Przelewy24';
 $_MODULE['<{fcpayone}prestashop>translations_d8e0628894d4c1aac016fd77920835a6'] = 'Sofortüberweisung';
 $_MODULE['<{fcpayone}prestashop>translations_fb75a2b342eee12874c025789f08e219'] = 'Vorauskasse';
-$_MODULE['<{fcpayone}prestashop>translations_9a04bbc4c800c04b9bc72cc07a31be98'] = 'Nachname';
+$_MODULE['<{fcpayone}prestashop>translations_9a04bbc4c800c04b9bc72cc07a31be98'] = 'Nachnahme';
 $_MODULE['<{fcpayone}prestashop>translations_7b9d30ad0ac30206e7614fe919e6c774'] = 'Bankeinzug/Lastschrift';
 $_MODULE['<{fcpayone}prestashop>translations_bb41c063548339f9f5716381096d52c7'] = 'Rechnung';
 $_MODULE['<{fcpayone}prestashop>translations_b0d927d037e3073413d55ec1cf4c0c0f'] = 'BS Payone - gesicherter Rechnungskauf';
