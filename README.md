@@ -1,3 +1,7 @@
+# This Repo is now deprecated!
+
+please use our Repo for Prestashop 1.7 instead: https://github.com/PAYONE-GmbH/prestashop-17
+
 # PAYMENT FOR YOUR PRESTASHOP
 
 PrestaShop is based on the idea of open source innovations. The PAYONE payment-module follows this spirit and was now published on GitHub. We are proud on the new optimized module with an even better quality. The community here is a great help for getting us on the next level and we are happy about your participation. Take a look at our released version and send us commits or other feedback to take care for the best possible solution.
